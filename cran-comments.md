@@ -3,6 +3,9 @@
 0 errors | 0 warnings | 1 note
 
 * This is a new submission.
+* Possibly misspelled words in DESCRIPTION: ARP (Address Resolution
+  Protocol), EUI (from EUI-64, Extended Unique Identifier) and IPv (from
+  IPv6). They are standard networking terms and are spelled correctly.
 
 ## Test environments
 
