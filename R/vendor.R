@@ -116,8 +116,8 @@ oui_urls <- list(
 #' if (is.data.frame(oui)) lookup_vendor(get_MAC(), oui)
 #' }
 lookup_vendor <- function(mac, registry = get_oui_registry()) {
-  if (!is.data.frame(registry) ||
-      !all(c("assignment", "organization") %in% names(registry))) {
+  needed <- c("assignment", "organization")
+  if (!is.data.frame(registry) || !all(needed %in% names(registry))) {
     stop("`registry` must be a data frame with columns 'assignment' and ",
          "'organization', as returned by get_oui_registry().", call. = FALSE)
   }

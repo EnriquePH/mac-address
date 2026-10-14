@@ -10,6 +10,8 @@ Description: Tools to work with MAC (Media Access Control) addresses: list the
     and identify the manufacturer using the public IEEE (Institute of
     Electrical and Electronics Engineers) MA-L, MA-M and MA-S registries
     <https://regauth.standards.ieee.org/standards-ra-web/pub/view.html#registries>.
+URL: https://github.com/EnriquePH/mac-address
+BugReports: https://github.com/EnriquePH/mac-address/issues
 Depends: R (>= 4.0.0)
 Imports:
     stats,

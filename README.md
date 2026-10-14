@@ -1,5 +1,11 @@
 # MAC.address
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/EnriquePH/mac-address/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EnriquePH/mac-address/actions/workflows/R-CMD-check.yaml)
+[![CRAN status](https://www.r-pkg.org/badges/version/MAC.address)](https://CRAN.R-project.org/package=MAC.address)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+<!-- badges: end -->
+
 R tools to work with MAC (Media Access Control) addresses:
 
 - list the MAC addresses of the local network interfaces (Linux, macOS, Windows),
@@ -13,9 +19,9 @@ R tools to work with MAC (Media Access Control) addresses:
 # From CRAN (once published)
 install.packages("MAC.address")
 
-# Development version, from a local copy
-# install.packages("devtools")
-devtools::install_local("path/to/MAC.address")
+# Development version, from GitHub
+# install.packages("remotes")
+remotes::install_github("EnriquePH/mac-address")
 ```
 
 ## Usage
