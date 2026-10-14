@@ -27,6 +27,7 @@ test_that("lookup_vendor accepts lower case prefixes and checks the registry", {
 
 test_that("get_oui_registry reads the IEEE registry", {
   skip_on_cran()
+  skip_if_not_installed("withr")
   skip_if_offline("standards-oui.ieee.org")
   oui <- tryCatch(
     suppressMessages(
