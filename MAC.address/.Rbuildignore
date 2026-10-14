@@ -1,0 +1,7 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.Rhistory$
+^LICENSE\.md$
+^\.lintr$
+^cran-comments\.md$
+^CRAN-SUBMISSION$

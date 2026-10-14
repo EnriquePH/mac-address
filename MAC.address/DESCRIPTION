@@ -1,0 +1,27 @@
+Package: MAC.address
+Title: Find, Validate and Identify Device MAC Addresses
+Version: 0.1.0
+Authors@R: person("Enrique", "Pérez Herrero",
+    email = "eph.project1500@gmail.com",
+    role = c("aut", "cre"))
+Description: Tools to work with MAC (Media Access Control) addresses: list the
+    MAC addresses of the local network interfaces on Linux, macOS and Windows,
+    extract MAC addresses from free text, validate and normalize their notation,
+    and identify the manufacturer using the public IEEE (Institute of
+    Electrical and Electronics Engineers) MA-L, MA-M and MA-S registries
+    <https://regauth.standards.ieee.org/standards-ra-web/pub/view.html#registries>.
+Depends: R (>= 4.0.0)
+Imports:
+    stats,
+    tools,
+    utils
+Suggests:
+    curl,
+    testthat (>= 3.0.0),
+    withr
+License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en-US
+Roxygen: list(markdown = TRUE)
+Config/testthat/edition: 3
+Config/roxygen2/version: 8.1.0
