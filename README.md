@@ -2,7 +2,11 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/EnriquePH/mac-address/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EnriquePH/mac-address/actions/workflows/R-CMD-check.yaml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+[![pkgdown](https://github.com/EnriquePH/mac-address/actions/workflows/pkgdown.yaml/badge.svg)](https://enriqueph.github.io/mac-address/)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R >= 4.0.0](https://img.shields.io/badge/R-%E2%89%A5%204.0.0-276DC3.svg)](https://cran.r-project.org/)
+[![Dependencies: base R only](https://img.shields.io/badge/dependencies-base%20R%20only-brightgreen.svg)](https://github.com/EnriquePH/mac-address/blob/main/DESCRIPTION)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/EnriquePH/mac-address/blob/main/LICENSE.md)
 <!-- badges: end -->
 
 R tools to work with MAC (Media Access Control) addresses:
@@ -13,6 +17,8 @@ R tools to work with MAC (Media Access Control) addresses:
 - validate and normalize their notation, check the multicast and locally
   administered bits, generate random addresses and derive IPv6 identifiers,
 - identify the manufacturer using the public IEEE OUI registries.
+
+Documentation: <https://enriqueph.github.io/mac-address/>
 
 ## Installation
 

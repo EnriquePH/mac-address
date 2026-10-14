@@ -1,0 +1,34 @@
+url: https://enriqueph.github.io/mac-address/
+
+template:
+  bootstrap: 5
+
+home:
+  title: "MAC.address: find, validate and identify MAC addresses"
+
+reference:
+  - title: Addresses of this device and its network
+    contents:
+      - get_MAC
+      - get_arp_table
+  - title: Search, validate and normalize
+    contents:
+      - search_MAC
+      - is_MAC
+      - normalize_MAC
+  - title: Address properties and conversions
+    contents:
+      - is_local_MAC
+      - is_multicast_MAC
+      - random_MAC
+      - eui64_MAC
+  - title: Manufacturer lookup
+    contents:
+      - get_oui_registry
+      - lookup_vendor
+  - title: Package
+    contents:
+      - MAC.address-package
+
+news:
+  cran_dates: false

@@ -12,7 +12,8 @@ Description: Tools to work with MAC (Media Access Control) addresses: list the
     interface identifiers (modified EUI-64), and identify the manufacturer using the public IEEE (Institute of
     Electrical and Electronics Engineers) MA-L, MA-M and MA-S registries
     <https://regauth.standards.ieee.org/standards-ra-web/pub/view.html#registries>.
-URL: https://github.com/EnriquePH/mac-address
+URL: https://github.com/EnriquePH/mac-address,
+    https://enriqueph.github.io/mac-address/
 BugReports: https://github.com/EnriquePH/mac-address/issues
 Depends: R (>= 4.0.0)
 Imports:
