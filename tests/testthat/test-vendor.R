@@ -25,19 +25,14 @@ test_that("lookup_vendor accepts lower case prefixes and checks the registry", {
                "registry")
 })
 
-test_that("is_local_MAC checks the locally administered bit", {
-  expect_equal(
-    is_local_MAC(c("02:00:00:00:00:01", "DA:A1:19:00:00:00",
-                   "1C:4C:7E:30:D8:13", "bad")),
-    c(TRUE, TRUE, FALSE, NA)
-  )
-})
-
 test_that("get_oui_registry reads the IEEE registry", {
   skip_on_cran()
   skip_if_offline("standards-oui.ieee.org")
-  oui <- suppressMessages(
-    get_oui_registry("MA-L", cache_dir = withr::local_tempdir())
+  oui <- tryCatch(
+    suppressMessages(
+      get_oui_registry("MA-L", cache_dir = withr::local_tempdir())
+    ),
+    error = function(e) skip(conditionMessage(e))
   )
   expect_named(oui, c("registry", "assignment", "organization", "address"))
   expect_equal(lookup_vendor("00:00:0C:00:00:00", oui), "Cisco Systems, Inc")

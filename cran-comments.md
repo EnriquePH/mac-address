@@ -18,5 +18,9 @@
   Tests that need internet access use `skip_on_cran()`.
 * The user cache is located with `tools::R_user_dir()`, and is only written
   when the user calls `get_oui_registry()` without a `cache_dir`.
-* `get_MAC()` only reads local network configuration (`/sys/class/net`,
-  `ifconfig` or `getmac`). It does not send any data.
+* `get_MAC()` and `get_arp_table()` only read the local network configuration
+  (`/sys/class/net`, `/proc/net/arp`, `ifconfig`, `arp` or `getmac`). They do
+  not send any packets or data.
+* To our knowledge, no other CRAN package provides MAC address parsing or
+  IEEE OUI vendor lookup; existing network packages (e.g. 'ipaddress', 'IP')
+  work with IP addresses.

@@ -65,14 +65,20 @@ download_registry <- function(url, file) {
   message("Downloading ", url)
   tmp <- tempfile(fileext = ".csv")
   on.exit(unlink(tmp), add = TRUE)
-  ok <- tryCatch(
-    utils::download.file(url, tmp, quiet = TRUE, mode = "wb") == 0,
-    error = function(e) FALSE,
-    warning = function(w) FALSE
+  reason <- tryCatch(
+    {
+      utils::download.file(url, tmp, quiet = TRUE, mode = "wb")
+      NULL
+    },
+    error = conditionMessage,
+    warning = conditionMessage
   )
-  if (!ok || !file.copy(tmp, file, overwrite = TRUE)) {
-    stop("Could not download the IEEE registry from ", url, ".\n",
-         "Check your internet connection and try again.", call. = FALSE)
+  if (is.null(reason) && !file.copy(tmp, file, overwrite = TRUE)) {
+    reason <- paste("could not write", file)
+  }
+  if (!is.null(reason)) {
+    stop("Could not download the IEEE registry from ", url, " (", reason,
+         ").\nCheck your internet connection and try again.", call. = FALSE)
   }
   invisible(file)
 }
@@ -134,22 +140,4 @@ lookup_vendor <- function(mac, registry = get_oui_registry()) {
     vendor[todo] <- organization[block][match(prefix, assignment[block])]
   }
   vendor
-}
-
-#' Check whether MAC addresses are locally administered
-#'
-#' Locally administered addresses (e.g. randomized addresses used by phones
-#' for Wi-Fi privacy, or virtual machines) have the second least significant
-#' bit of the first octet set.
-#'
-#' @param mac A character vector of MAC addresses.
-#'
-#' @return A logical vector (`NA` for invalid addresses).
-#' @export
-#'
-#' @examples
-#' is_local_MAC(c("02:00:00:00:00:01", "1C:4C:7E:30:D8:13"))
-is_local_MAC <- function(mac) {
-  first_octet <- strtoi(substr(normalize_MAC(mac), 1, 2), base = 16)
-  bitwAnd(first_octet, 2L) > 0
 }

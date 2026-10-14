@@ -8,6 +8,14 @@
 \description{
 Tools to work with MAC (Media Access Control) addresses: list the MAC addresses of the local network interfaces on Linux, macOS and Windows, extract MAC addresses from free text, validate and normalize their notation, and identify the manufacturer using the public IEEE (Institute of Electrical and Electronics Engineers) MA-L, MA-M and MA-S registries \url{https://regauth.standards.ieee.org/standards-ra-web/pub/view.html#registries}.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/EnriquePH/mac-address}
+  \item Report bugs at \url{https://github.com/EnriquePH/mac-address/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Enrique Pérez Herrero \email{eph.project1500@gmail.com}
 

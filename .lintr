@@ -1,7 +1,7 @@
 linters: linters_with_defaults(
     object_name_linter(
       styles = c("snake_case", "symbols"),
-      regexes = c("snake_case with MAC" = "^[a-z][a-z_]*_MAC$")
+      regexes = c("snake_case with MAC" = "^[a-z][a-z0-9_]*_MAC$")
     )
   )
 encoding: "UTF-8"

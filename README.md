@@ -2,15 +2,16 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/EnriquePH/mac-address/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EnriquePH/mac-address/actions/workflows/R-CMD-check.yaml)
-[![CRAN status](https://www.r-pkg.org/badges/version/MAC.address)](https://CRAN.R-project.org/package=MAC.address)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 <!-- badges: end -->
 
 R tools to work with MAC (Media Access Control) addresses:
 
-- list the MAC addresses of the local network interfaces (Linux, macOS, Windows),
+- list the MAC addresses of the local network interfaces and of the devices
+  in the ARP cache (Linux, macOS, Windows),
 - extract MAC addresses from free text,
-- validate and normalize their notation,
+- validate and normalize their notation, check the multicast and locally
+  administered bits, generate random addresses and derive IPv6 identifiers,
 - identify the manufacturer using the public IEEE OUI registries.
 
 ## Installation
@@ -54,6 +55,24 @@ lookup_vendor(get_MAC())
 # Randomized / virtual addresses are locally administered, not IEEE assigned
 is_local_MAC("DA:A1:19:00:00:00")
 #> [1] TRUE
+is_multicast_MAC("01:00:5E:00:00:FB")
+#> [1] TRUE
+
+# Devices in the local network (ARP cache) and their manufacturer
+arp <- get_arp_table()
+arp$vendor <- lookup_vendor(arp$mac)
+arp
+#>            ip               mac interface        vendor
+#> 1 192.168.1.1 D4:61:95:EE:14:71    wlp2s0 zte corporation
+
+# Random locally administered addresses, e.g. for virtual machines
+set.seed(1)
+random_MAC(2)
+#> [1] "FA:80:D6:D1:E0:69" "42:A1:2A:BA:54:B5"
+
+# IPv6 link-local address derived from a MAC (modified EUI-64)
+eui64_MAC("1C:4C:7E:30:D8:13", link_local = TRUE)
+#> [1] "fe80::1e4c:7eff:fe30:d813"
 ```
 
 ## Functions
@@ -61,10 +80,14 @@ is_local_MAC("DA:A1:19:00:00:00")
 | Function             | Description                                                    |
 |----------------------|----------------------------------------------------------------|
 | `get_MAC()`          | MAC addresses of the local network interfaces                  |
+| `get_arp_table()`    | IP and MAC addresses of the neighbors in the ARP cache         |
 | `search_MAC()`       | Extract MAC addresses from text                                |
 | `is_MAC()`           | Check whether strings are valid MAC addresses                  |
 | `normalize_MAC()`    | Convert to a common notation (`XX:XX:XX:XX:XX:XX` by default)  |
 | `is_local_MAC()`     | Check the locally administered bit                             |
+| `is_multicast_MAC()` | Check the multicast (group) bit                                |
+| `random_MAC()`       | Generate random (by default locally administered) addresses    |
+| `eui64_MAC()`        | IPv6 modified EUI-64 identifier and link-local address         |
 | `get_oui_registry()` | Download (and cache) the IEEE MA-L, MA-M and MA-S registries   |
 | `lookup_vendor()`    | Organization that owns each MAC address block                  |
 
@@ -94,6 +117,7 @@ lintr::lint_package()
 - MA-L (OUI) registry: <https://standards-oui.ieee.org/oui/oui.csv>
 - MA-M registry: <https://standards-oui.ieee.org/oui28/mam.csv>
 - MA-S registry: <https://standards-oui.ieee.org/oui36/oui36.csv>
+- RFC 4291, appendix A (modified EUI-64): <https://www.rfc-editor.org/rfc/rfc4291#appendix-A>
 
 ## License
 
