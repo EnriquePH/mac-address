@@ -1,6 +1,6 @@
 Package: MAC.address
 Title: Find, Validate and Identify Device MAC Addresses
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: person("Enrique", "Pérez Herrero",
     email = "eph.project1500@gmail.com",
     role = c("aut", "cre"))

@@ -1,6 +1,7 @@
 # MAC.address
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/MAC.address)](https://CRAN.R-project.org/package=MAC.address)
 [![R-CMD-check](https://github.com/EnriquePH/mac-address/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EnriquePH/mac-address/actions/workflows/R-CMD-check.yaml)
 [![pkgdown](https://github.com/EnriquePH/mac-address/actions/workflows/pkgdown.yaml/badge.svg)](https://enriqueph.github.io/mac-address/)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
@@ -23,7 +24,7 @@ Documentation: <https://enriqueph.github.io/mac-address/>
 ## Installation
 
 ```r
-# From CRAN (once published)
+# From CRAN
 install.packages("MAC.address")
 
 # Development version, from GitHub
