@@ -21,6 +21,8 @@ R tools to work with MAC (Media Access Control) addresses:
 
 Documentation: <https://enriqueph.github.io/mac-address/>
 
+CRAN: <https://CRAN.R-project.org/package=MAC.address>
+
 ## Installation
 
 ```r
